@@ -2,6 +2,6 @@
 	"extends": ["stylelint-config-standard", "stylelint-config-prettier"],
 	"plugins": [],
 	"rules": {
-		"indentation": 4
+		"indentation": "tab"
 	}
 }
