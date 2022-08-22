@@ -1,30 +1,44 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import PageLoader from './shared/components/pageLoader';
 
 function App() {
+	const Home = lazy(() => import('./pages/home/home'));
+	const Login = lazy(() => import('./pages/login/login'));
+	const Logout = lazy(() => import('./pages/logout/logout'));
+
 	return (
-		<div className="app">
-			<header className="app-header">
-				<img
-					src={logo}
-					className="app-logo"
-					alt="logo"
-				/>
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className="app-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
+		<BrowserRouter>
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<Suspense fallback={<PageLoader />}>
+							<Home />
+						</Suspense>
+					}
 				>
-					Learn React
-				</a>
-			</header>
-		</div>
+					<Route
+						path="login"
+						element={
+							<Suspense fallback={<PageLoader />}>
+								<Login />
+							</Suspense>
+						}
+					/>
+					<Route
+						path="logout"
+						element={
+							<Suspense fallback={<PageLoader />}>
+								<Logout />
+							</Suspense>
+						}
+					/>
+				</Route>
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
