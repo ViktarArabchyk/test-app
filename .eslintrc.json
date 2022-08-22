@@ -1,40 +1,37 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
-    },
-    "extends": [
-        "react-app",
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint",
-        "prettier"
-    ],
-    "rules": {
-        "import/order": [
-            "error",
-            {
-                "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
-                "newlines-between": "always-and-inside-groups"
-            }
-        ],
-        "no-async-promise-executor": "error",
-        "no-console": "warn",
-        "no-unused-vars": "warn",
-        "prefer-const": "error"
-    }
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": [
+		"react-app",
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "@typescript-eslint", "prettier"],
+	"ignorePatterns": ["build/**", "node_modules/**"],
+	"rules": {
+		"import/order": [
+			"error",
+			{
+				"groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
+				"newlines-between": "always-and-inside-groups"
+			}
+		],
+		"no-async-promise-executor": "error",
+		"no-console": "warn",
+		"no-unused-vars": "warn",
+		"prefer-const": "error"
+	}
 }
